@@ -149,6 +149,70 @@ function App() {
         </div>
       </section>
 
+      <section id="contact" className="mx-auto max-w-6xl px-6 py-24">
+        <h2 className="text-xs tracking-widest uppercase mb-12 text-center">
+          Contact Me
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {/* Left: form (takes 2 columns) */}
+          <form className="md:col-span-2 space-y-4">
+            <input
+              type="text"
+              placeholder="Name:"
+              className="w-full bg-neutral-200/70 px-4 py-3 text-sm outline-none focus:bg-neutral-200"
+            />
+            <input
+              type="email"
+              placeholder="Email:"
+              className="w-full bg-neutral-200/70 px-4 py-3 text-sm outline-none focus:bg-neutral-200"
+            />
+            <textarea
+              placeholder="Message:"
+              rows={8}
+              className="w-full bg-neutral-200/70 px-4 py-3 text-sm outline-none resize-none focus:bg-neutral-200"
+            />
+            <div className="pt-4 flex justify-center">
+              <button
+                type="submit"
+                className="text-xs tracking-widest uppercase hover:opacity-60 transition"
+              >
+                Send
+              </button>
+            </div>
+          </form>
+
+          {/* Right: stacked info boxes */}
+          <div className="space-y-6">
+            <div className="bg-neutral-200/70 px-4 py-6 min-h-[60px] flex items-start">
+              <div className="text-xs tracking-widest uppercase text-neutral-600">
+                <a
+    href="https://www.instagram.com/beryl_jiang_/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-sm text-neutral-800 hover:opacity-60 transition"
+  >
+    @beryl_jiang_
+  </a>
+              </div>
+            </div>
+
+            <div className="bg-neutral-200/70 px-4 py-6 min-h-[215px]">
+              <div className="text-xs tracking-widest uppercase text-neutral-600 mb-4">
+                Skills
+              </div>
+
+              {/* Placeholder skills */}
+              <ul className="text-sm text-neutral-700 space-y-2">
+                <li>Coming soon</li>
+                <li>Coming soon</li>
+                <li>Coming soon</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
     </div>
   );
