@@ -100,7 +100,7 @@ function App() {
 
       <section id="photos" className="mx-auto max-w-6xl px-6 py-20">
         {/*Photo Gallery */}
-        <h2 className="text-xs tracking-widest uppercase mb-12">
+        <h2 className="text-lg tracking-widest uppercase mb-12">
           Photo Gallery
         </h2>
 
@@ -120,7 +120,7 @@ function App() {
       </section>
       <section id="videos" className="mx-auto max-w-6xl px-6 py-20">
         {/* Video Gallery */}
-        <h2 className="text-xs tracking-widest uppercase mb-12 text-center">
+        <h2 className="text-lg tracking-widest uppercase mb-12">
           Video Gallery
         </h2>
 
@@ -196,7 +196,7 @@ function App() {
       </section>
 
       <section id="contact" className="mx-auto max-w-6xl px-6 py-24">
-        <h2 className="text-xs tracking-widest uppercase mb-12 text-center">
+        <h2 className="text-lg tracking-widest uppercase mb-12">
           Contact Me
         </h2>
 
@@ -258,8 +258,19 @@ function App() {
           </div>
         </div>
       </section>
-
-
+      <footer className="w-full py-10 text-center border-t border-black/5">
+        <p className="text-[10px] tracking-widest uppercase text-neutral-500">
+          Made by{" "}
+          <a
+            href="https://shannonlowe.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:opacity-60 transition"
+          >
+            Shannon Lowe
+          </a>
+        </p>
+      </footer>
     </div>
   );
 }
