@@ -221,7 +221,7 @@ function App() {
             <div className="pt-4 flex justify-center">
               <button
                 type="submit"
-                className="text-xs tracking-widest uppercase hover:opacity-60 transition"
+                className="text-xs tracking-widest uppercase mb-12 hover:opacity-60 transition"
               >
                 Send
               </button>
