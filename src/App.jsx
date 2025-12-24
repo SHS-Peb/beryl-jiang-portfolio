@@ -52,6 +52,52 @@ function App() {
         </ul>
 
       </nav>
+      <section id="home" className="mx-auto max-w-6xl px-6 pt-10 pb-20">
+        <div className="relative min-h-[520px]">
+          {/* Center text */}
+          <div className="relative z-10 flex flex-col items-center text-center pt-10">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl tracking-widest uppercase text-neutral-800">
+              Beryl Jiang
+            </h1>
+            <p className="mt-6 text-xs tracking-widest uppercase text-neutral-600">
+              Actress • Model
+            </p>
+          </div>
+
+          {/* Asymmetrical photo placeholders */}
+          <div className="relative mt-10 h-[420px]">
+            {/* Top / center (portrait-ish) */}
+            <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[52%] md:w-[46%] aspect-[4/3] bg-neutral-200 flex items-center justify-center">
+              <span className="text-[10px] tracking-widest uppercase text-neutral-500">
+                Coming Soon
+              </span>
+            </div>
+
+            {/* Bottom left (wide) */}
+            <div className="absolute left-0 top-[55%] w-[44%] aspect-video bg-neutral-200 flex items-center justify-center">
+              <span className="text-[10px] tracking-widest uppercase text-neutral-500">
+                Coming Soon
+              </span>
+            </div>
+
+            {/* Middle small (optional, like the little cafe shot) */}
+            <div className="absolute left-[28%] top-[62%] w-[26%] aspect-video bg-neutral-200 flex items-center justify-center">
+              <span className="text-[10px] tracking-widest uppercase text-neutral-500">
+                Coming Soon
+              </span>
+            </div>
+
+            {/* Right (wide) */}
+            <div className="absolute right-0 top-[28%] w-[44%] aspect-video bg-neutral-200 flex items-center justify-center">
+              <span className="text-[10px] tracking-widest uppercase text-neutral-500">
+                Coming Soon
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
       <section id="photos" className="mx-auto max-w-6xl px-6 py-20">
         {/*Photo Gallery */}
         <h2 className="text-xs tracking-widest uppercase mb-12">
@@ -187,13 +233,13 @@ function App() {
             <div className="bg-neutral-200/70 px-4 py-6 min-h-[60px] flex items-start">
               <div className="text-xs tracking-widest uppercase text-neutral-600">
                 <a
-    href="https://www.instagram.com/beryl_jiang_/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-sm text-neutral-800 hover:opacity-60 transition"
-  >
-    @beryl_jiang_
-  </a>
+                  href="https://www.instagram.com/beryl_jiang_/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-neutral-800 hover:opacity-60 transition"
+                >
+                  @beryl_jiang_
+                </a>
               </div>
             </div>
 
