@@ -12,15 +12,50 @@ function App() {
         </div>
 
         <ul className="flex gap-10 text-xs tracking-widest uppercase">
-          <li className="hover:opacity-60 transition cursor-pointer">Home</li>
-          <li className="hover:opacity-60 transition cursor-pointer">Gallery</li>
-          <li className="hover:opacity-60 transition cursor-pointer">Contact Me</li>
+          <li>
+            <a className="hover:opacity-60 transition cursor-pointer" href="#home">
+              Home
+            </a>
+          </li>
+
+          {/* Gallery dropdown */}
+          <li className="relative group">
+            <span className="hover:opacity-60 transition cursor-pointer">
+              Gallery
+            </span>
+
+            {/* hover bridge wrapper */}
+            <div className="absolute right-0 top-full pt-3 w-40">
+              <div className="bg-[#f6f4ef] border border-black/10 rounded-md shadow-sm opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
+                <a
+                  href="#photos"
+                  className="block px-4 py-3 text-[10px] tracking-widest uppercase hover:bg-black/5 transition"
+                >
+                  Photos
+                </a>
+                <a
+                  href="#videos"
+                  className="block px-4 py-3 text-[10px] tracking-widest uppercase hover:bg-black/5 transition"
+                >
+                  Video
+                </a>
+              </div>
+            </div>
+          </li>
+
+
+          <li>
+            <a className="hover:opacity-60 transition cursor-pointer" href="#contact">
+              Contact Me
+            </a>
+          </li>
         </ul>
+
       </nav>
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        {/* Gallery */}
+      <section id="photos" className="mx-auto max-w-6xl px-6 py-20">
+        {/*Photo Gallery */}
         <h2 className="text-xs tracking-widest uppercase mb-12">
-          Gallery
+          Photo Gallery
         </h2>
 
         {/* Gallery Grid */}
@@ -37,7 +72,7 @@ function App() {
           ))}
         </div>
       </section>
-      <section className="mx-auto max-w-6xl px-6 py-20">
+      <section id="videos" className="mx-auto max-w-6xl px-6 py-20">
         {/* Video Gallery */}
         <h2 className="text-xs tracking-widest uppercase mb-12 text-center">
           Video Gallery
