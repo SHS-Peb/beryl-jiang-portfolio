@@ -1,9 +1,7 @@
-import { useState } from "react";
 import "./index.css";
 import { useTranslation } from "react-i18next";
 
 function App() {
-  const [count, setCount] = useState(0);
   const { t, i18n } = useTranslation();
 
   const toggleLang = () => {
@@ -68,7 +66,7 @@ function App() {
             aria-label="Toggle language"
             type="button"
           >
-            {i18n.language === "en" ? "粵" : "EN"}
+            {i18n.language === "en" ? "中" : "EN"}
           </button>
         </div>
       </nav>
