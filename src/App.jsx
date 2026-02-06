@@ -96,36 +96,15 @@ function App() {
             </p>
           </div>
 
-          {/* Asymmetrical photo placeholders */}
-          <div className="relative mt-10 h-[420px]">
-            {/* Top / center (portrait-ish) */}
-            <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[52%] md:w-[46%] aspect-[4/3] bg-neutral-200 flex items-center justify-center">
+          {/* Headshot (large) */}
+          <div className="relative mt-10 flex justify-center">
+            <div className="w-full max-w-3xl aspect-[4/5] md:aspect-[3/4] bg-neutral-200 overflow-hidden flex items-center justify-center">
               <span className="text-[10px] tracking-widest uppercase text-neutral-500">
-                {t("common.comingSoon")}
-              </span>
-            </div>
-
-            {/* Bottom left (wide) */}
-            <div className="absolute left-0 top-[55%] w-[44%] aspect-video bg-neutral-200 flex items-center justify-center">
-              <span className="text-[10px] tracking-widest uppercase text-neutral-500">
-                {t("common.comingSoon")}
-              </span>
-            </div>
-
-            {/* Middle small */}
-            <div className="absolute left-[28%] top-[62%] w-[26%] aspect-video bg-neutral-200 flex items-center justify-center">
-              <span className="text-[10px] tracking-widest uppercase text-neutral-500">
-                {t("common.comingSoon")}
-              </span>
-            </div>
-
-            {/* Right (wide) */}
-            <div className="absolute right-0 top-[28%] w-[44%] aspect-video bg-neutral-200 flex items-center justify-center">
-              <span className="text-[10px] tracking-widest uppercase text-neutral-500">
-                {t("common.comingSoon")}
+                Headshot
               </span>
             </div>
           </div>
+
         </div>
       </section>
 
@@ -145,7 +124,6 @@ function App() {
                 src={src}
                 alt={`Beryl photo ${index + 1}`}
                 className="w-full h-full object-cover"
-                loading="lazy"
               />
             </div>
           ))}
