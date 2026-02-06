@@ -1,5 +1,7 @@
 import "./index.css";
 import { useTranslation } from "react-i18next";
+import headshot from "./assets/photos/IMG_8306.webp";
+
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -99,9 +101,13 @@ function App() {
           {/* Headshot (large) */}
           <div className="relative mt-10 flex justify-center">
             <div className="w-full max-w-3xl aspect-[4/5] md:aspect-[3/4] bg-neutral-200 overflow-hidden flex items-center justify-center">
-              <span className="text-[10px] tracking-widest uppercase text-neutral-500">
-                Headshot
-              </span>
+              <img
+                src={headshot}
+                alt="Beryl Jiang headshot"
+                className="w-full h-full object-cover"
+                loading="eager"
+                decoding="async"
+              />
             </div>
           </div>
 
