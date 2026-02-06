@@ -8,6 +8,25 @@ function App() {
     i18n.changeLanguage(i18n.language === "en" ? "yue" : "en");
   };
 
+  const photoModules = import.meta.glob("./assets/photos/*.{jpg,JPG,jpeg,JPEG,png,PNG,webp,WEBP}", {
+    eager: true,
+    import: "default",
+  });
+
+  const photos = Object.entries(photoModules)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([, src]) => src);
+
+  const ytEmbed = (url) => {
+    const id =
+      url.includes("watch?v=")
+
+        ? url.split("watch?v=")[1].split("&")[0]
+        : url.split("youtu.be/")[1]?.split("?")[0];
+
+    return `https://www.youtube.com/embed/${id}?rel=0&modestbranding=1`;
+  };
+
   return (
     <div className="min-h-screen bg-[#f6f4ef] text-neutral-800 scroll-smooth">
       <nav className="w-full flex items-center justify-between px-12 py-8">
@@ -16,10 +35,7 @@ function App() {
         <div className="flex items-center gap-8">
           <ul className="flex gap-10 text-xs tracking-widest uppercase">
             <li>
-              <a
-                className="hover:opacity-60 transition cursor-pointer"
-                href="#home"
-              >
+              <a className="hover:opacity-60 transition cursor-pointer" href="#home">
                 {t("nav.home")}
               </a>
             </li>
@@ -50,10 +66,7 @@ function App() {
             </li>
 
             <li>
-              <a
-                className="hover:opacity-60 transition cursor-pointer"
-                href="#contact"
-              >
+              <a className="hover:opacity-60 transition cursor-pointer" href="#contact">
                 {t("nav.contact")}
               </a>
             </li>
@@ -121,15 +134,19 @@ function App() {
           {t("sections.photos")}
         </h2>
 
+        {/* Photo gallery */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {Array.from({ length: 12 }).map((_, index) => (
+          {photos.map((src, index) => (
             <div
-              key={index}
-              className="relative aspect-[3/4] bg-neutral-200 overflow-hidden flex items-center justify-center"
+              key={`${src}-${index}`}
+              className="relative aspect-[3/4] bg-neutral-200 overflow-hidden"
             >
-              <span className="text-[10px] tracking-widest uppercase text-neutral-500">
-                {t("common.comingSoon")}
-              </span>
+              <img
+                src={src}
+                alt={`Beryl photo ${index + 1}`}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
           ))}
         </div>
@@ -141,22 +158,18 @@ function App() {
         </h2>
 
         {/* Showreel (big) */}
-        <div className="relative aspect-video bg-neutral-200 flex items-center justify-center mb-16">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-16 h-16 rounded-full border border-neutral-500/40 flex items-center justify-center">
-              <div className="w-0 h-0 border-y-[8px] border-y-transparent border-l-[14px] border-l-neutral-500/60 ml-1" />
-            </div>
-          </div>
-
-          <div className="text-center">
-            <div className="text-lg tracking-widest uppercase text-neutral-700">
-              Beryl Jiang
-            </div>
-            <div className="text-sm tracking-widest uppercase text-neutral-600 mt-1">
-              {t("video.showreel")}
-            </div>
-          </div>
+        <div className="relative aspect-video bg-neutral-200 overflow-hidden mb-16">
+          <iframe
+            className="absolute inset-0 w-full h-full"
+            src={ytEmbed("https://www.youtube.com/watch?v=1AAQ-bwvNMc")}
+            title="Beryl Jiang Showreel"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
         </div>
+
 
         {/* Smaller videos with text on the right */}
         <div className="space-y-12">
@@ -165,6 +178,7 @@ function App() {
               title: "Remnants of You",
               year: "2025",
               sub: "Short film directed and shot by Sean Victoriano",
+              url: "https://www.youtube.com/watch?v=5qBEcgx8qMk",
             },
             {
               title: "Decision to Leave (Remake)",
@@ -177,21 +191,34 @@ function App() {
               sub: "Music video / commercial / short film",
             },
           ].map((v, i) => (
-            <div
-              key={i}
-              className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-6 items-start"
-            >
-              <div className="relative aspect-video bg-neutral-200 flex items-center justify-center">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-10 h-10 rounded-full border border-neutral-500/40 flex items-center justify-center">
-                    <div className="w-0 h-0 border-y-[5px] border-y-transparent border-l-[9px] border-l-neutral-500/60 ml-0.5" />
-                  </div>
-                </div>
+            <div key={i} className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-6 items-start">
+              <div className="relative aspect-video bg-neutral-200 overflow-hidden">
+                {v.url ? (
+                  <iframe
+                    className="absolute inset-0 w-full h-full"
+                    src={ytEmbed(v.url)}
+                    title={`${v.title} — ${v.year}`}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  />
+                ) : (
+                  <>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-10 h-10 rounded-full border border-neutral-500/40 flex items-center justify-center">
+                        <div className="w-0 h-0 border-y-[5px] border-y-transparent border-l-[9px] border-l-neutral-500/60 ml-0.5" />
+                      </div>
+                    </div>
 
-                <span className="absolute bottom-3 left-3 text-[10px] tracking-widest uppercase text-neutral-500">
-                  {t("common.comingSoon")}
-                </span>
+                    <span className="absolute bottom-3 left-3 text-[10px] tracking-widest uppercase text-neutral-500">
+                      {t("common.comingSoon")}
+                    </span>
+                  </>
+                )}
               </div>
+
+
 
               <div className="pt-1">
                 <div className="text-sm tracking-wide text-neutral-800">
